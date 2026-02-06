@@ -4,11 +4,11 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-b from-[#0a0a0f] to-[#1a1a2e] px-6 pb-24 pt-28 lg:px-20 lg:pt-36"
+      className="relative overflow-hidden bg-gradient-to-b from-[#0a0a0f] to-[#1a1a2e] px-6 pb-24 lg:px-20"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16 lg:items-center">
-          <div className="flex-1 space-y-8 text-center lg:text-left">
+          <div className="order-2 flex-1 space-y-8 text-center lg:order-1 lg:text-left">
             <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               Igor Lohan
             </h1>
@@ -38,7 +38,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative shrink-0">
+          <div className="order-1 relative shrink-0 lg:order-2">
             <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-indigo-500/50 sm:h-72 sm:w-72 lg:h-80 lg:w-80">
               <Image
                 src="/igor.png"
