@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ProjectImageCarousel } from "./ProjectImageCarousel";
 
 const GITHUB_USER = "IgorLohan";
+
+const CUSTOM_IMAGES: Record<string, string | string[]> = {
+  portfolio: "/projetos/portfolio.png",
+  "api-chefia": "/projetos/api-chefia.png",
+  chefia: "/projetos/chefia.png",
+  barbertip: ["/projetos/barbertip.png", "/projetos/barbertip-2.png", "/projetos/barbertip-3.png", "/projetos/barbertip-4.png", "/projetos/barbertip-5.png"]
+};
+
 const GRADIENTS = [
   "from-indigo-500 to-violet-500",
   "from-violet-500 to-pink-500",
@@ -14,7 +23,7 @@ const GRADIENTS = [
 async function getGitHubRepos() {
   try {
     const res = await fetch(
-      `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=6`,
+      `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=4`,
       {
         next: { revalidate: 3600 },
         headers: {
@@ -68,7 +77,7 @@ export async function Projects() {
         </h2>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {repos.map((repo: { name: string; description: string | null; language: string | null; html_url: string; full_name: string; topics?: string[] }, index: number) => (
+          {repos.map((repo: { name: string; description: string | null; language: string | null; html_url: string; full_name: string; updated_at?: string; topics?: string[] }, index: number) => (
             <Link
               key={repo.name}
               href={repo.html_url}
@@ -76,17 +85,25 @@ export async function Projects() {
               rel="noopener noreferrer"
               className="group block overflow-hidden rounded-2xl bg-[#1a1a2e] transition-colors hover:bg-[#1e1e32]"
             >
-              <div
-                className={`relative h-52 overflow-hidden bg-gradient-to-r ${GRADIENTS[index % GRADIENTS.length]}`}
-              >
-                <Image
-                  src={`https://opengraph.githubassets.com/1/${repo.full_name}`}
+              {CUSTOM_IMAGES[repo.name] ? (
+                <ProjectImageCarousel
+                  images={CUSTOM_IMAGES[repo.name]!}
                   alt={repo.name}
-                  width={400}
-                  height={200}
-                  className="h-full w-full object-cover opacity-90 transition-transform group-hover:scale-105"
+                  gradientClass={GRADIENTS[index % GRADIENTS.length]}
                 />
-              </div>
+              ) : (
+                <div
+                  className={`relative h-52 overflow-hidden bg-gradient-to-r ${GRADIENTS[index % GRADIENTS.length]}`}
+                >
+                  <Image
+                    src={`https://opengraph.githubassets.com/${repo.updated_at ? new Date(repo.updated_at).getTime() : "1"}/${repo.full_name}`}
+                    alt={repo.name}
+                    width={400}
+                    height={200}
+                    className="h-full w-full object-contain opacity-90"
+                  />
+                </div>
+              )}
               <div className="space-y-4 p-6">
                 <h3 className="text-xl font-bold text-white">
                   {formatRepoName(repo.name)}
