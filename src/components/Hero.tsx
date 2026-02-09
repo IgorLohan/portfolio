@@ -14,12 +14,7 @@ export function Hero() {
             </h1>
 
             <p className="text-lg leading-relaxed text-zinc-400 sm:text-xl">
-              Sou desenvolvedor web com experiência em front-end e back-end,
-              atuando na criação e manutenção de aplicações web. Tenho como
-              objetivo consolidar minha carreira na área de tecnologia,
-              ampliando conhecimentos técnicos e contribuindo de forma
-              consistente para o sucesso dos projetos, com dedicação, disciplina
-              e propósito.
+              Desenvolvedor especializado em aplicações web modernas, com forte foco em arquitetura de software, escalabilidade e boas práticas de desenvolvimento. Atuo na criação de soluções robustas, performáticas e bem estruturadas, transformando ideias em produtos digitais confiáveis e eficientes.
             </p>
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
