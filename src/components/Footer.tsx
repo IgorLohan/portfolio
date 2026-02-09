@@ -9,7 +9,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-[#050508] px-6 py-14 lg:px-20">
+    <footer className="border-t border-white/5 bg-[#080505] px-6 py-14 lg:px-20">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-5">
         <p className="text-center text-sm text-zinc-500">
           © {new Date().getFullYear()}

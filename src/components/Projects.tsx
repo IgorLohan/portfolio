@@ -12,12 +12,12 @@ const CUSTOM_IMAGES: Record<string, string | string[]> = {
 };
 
 const GRADIENTS = [
-  "from-indigo-500 to-violet-500",
-  "from-violet-500 to-pink-500",
-  "from-pink-500 to-amber-500",
-  "from-amber-500 to-emerald-500",
-  "from-emerald-500 to-cyan-500",
-  "from-cyan-500 to-indigo-500",
+  "from-[#2d1010] to-[#5c2a2a]",
+  "from-[#1a0a0a] to-[#4a2020]",
+  "from-[#3d1515] to-[#6b3030]",
+  "from-[#2d1010] to-[#5c2a2a]",
+  "from-[#1a0a0a] to-[#4a2020]",
+  "from-[#3d1515] to-[#6b3030]",
 ];
 
 async function getGitHubRepos() {
@@ -52,7 +52,7 @@ export async function Projects() {
     return (
       <section
         id="projetos"
-        className="bg-[#0f0f1a] px-6 py-24 lg:px-20 lg:py-28"
+        className="bg-gradient-to-b from-[#0a0808] to-[#150a0a] px-6 py-24 lg:px-20 lg:py-28"
       >
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">
@@ -69,7 +69,7 @@ export async function Projects() {
   return (
     <section
       id="projetos"
-      className="bg-[#0f0f1a] px-6 py-24 lg:px-20 lg:py-28"
+      className="bg-[#150a0a] px-6 py-24 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">
@@ -83,7 +83,7 @@ export async function Projects() {
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block overflow-hidden rounded-2xl bg-[#1a1a2e] transition-colors hover:bg-[#1e1e32]"
+              className="group block overflow-hidden rounded-2xl bg-[#1a1212] transition-colors hover:bg-[#1e1515]"
             >
               {CUSTOM_IMAGES[repo.name] ? (
                 <ProjectImageCarousel
@@ -113,14 +113,14 @@ export async function Projects() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {repo.language && (
-                    <span className="rounded-lg bg-indigo-500/40 px-3 py-1.5 text-xs font-medium text-indigo-400">
+                    <span className="rounded-lg bg-[#8b4040]/40 px-3 py-1.5 text-xs font-medium text-[#c08080]">
                       {repo.language}
                     </span>
                   )}
                   {repo.topics?.slice(0, 2).map((topic) => (
                     <span
                       key={topic}
-                      className="rounded-lg bg-indigo-500/40 px-3 py-1.5 text-xs font-medium text-indigo-400"
+                      className="rounded-lg bg-[#8b4040]/40 px-3 py-1.5 text-xs font-medium text-[#c08080]"
                     >
                       {topic}
                     </span>

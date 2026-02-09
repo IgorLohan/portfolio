@@ -38,7 +38,7 @@ export function Skills() {
   return (
     <section
       id="tecnologias"
-      className="bg-[#0a0a0f] px-6 py-24 lg:px-20 lg:py-28"
+      className="bg-[#0a0808] px-6 py-24 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-4 text-center text-4xl font-bold text-white lg:text-5xl">
@@ -48,7 +48,7 @@ export function Skills() {
         <div className="space-y-16">
           {skillCategories.map((category) => (
             <div key={category.title}>
-              <div className="mb-6 border-l-2 border-indigo-500 pl-4">
+              <div className="mb-6 border-l-2 border-[#8b4040] pl-4">
                 <h3 className="text-lg font-semibold text-white">
                   {category.title}
                 </h3>
@@ -58,7 +58,7 @@ export function Skills() {
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group flex items-center gap-4 rounded-xl border border-white/5 bg-[#12121a] px-5 py-4 transition-all hover:border-indigo-500/30 hover:bg-[#1a1a2e]"
+                    className="group flex items-center gap-4 rounded-xl border border-white/5 bg-[#121210] px-5 py-4 transition-all hover:border-[#8b4040]/30 hover:bg-[#1a1212]"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center">
                       <img

@@ -25,7 +25,7 @@ export function Contact() {
   return (
     <section
       id="contato"
-      className="bg-[#0a0a0f] px-6 py-24 lg:px-20 lg:py-28"
+      className="bg-[#0a0808] px-6 py-24 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="mb-6 text-4xl font-bold text-white lg:text-5xl">
@@ -43,7 +43,7 @@ export function Contact() {
               href={link.href}
               target={link.href.startsWith("mailto:") ? undefined : "_blank"}
               rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-indigo-500 px-4 py-3 text-sm font-semibold text-indigo-500 transition-colors hover:bg-indigo-500/10 sm:gap-2.5 sm:px-8 sm:py-4 sm:text-base"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#8b4040] px-4 py-3 text-sm font-semibold text-[#a85555] transition-colors hover:bg-[#8b4040]/10 sm:gap-2.5 sm:px-8 sm:py-4 sm:text-base"
             >
               <img
                 src={link.icon}
