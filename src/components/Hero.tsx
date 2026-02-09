@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-b from-[#0a0808] to-[#1a0f0f] px-6 pb-24 lg:px-20"
+      className="relative overflow-hidden bg-gradient-to-b from-[#0a0808]/90 to-[#1a0f0f]/90 px-6 pb-24 lg:px-20"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16 lg:items-center">

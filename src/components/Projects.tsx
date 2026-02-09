@@ -52,7 +52,7 @@ export async function Projects() {
     return (
       <section
         id="projetos"
-        className="bg-gradient-to-b from-[#0a0808] to-[#150a0a] px-6 py-24 lg:px-20 lg:py-28"
+        className="bg-gradient-to-b from-[#0a0808]/85 to-[#150a0a]/85 px-6 py-24 lg:px-20 lg:py-28"
       >
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">
@@ -69,7 +69,7 @@ export async function Projects() {
   return (
     <section
       id="projetos"
-      className="bg-[#150a0a] px-6 py-24 lg:px-20 lg:py-28"
+      className="bg-[#150a0a]/85 px-6 py-24 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">

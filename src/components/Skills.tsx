@@ -38,7 +38,7 @@ export function Skills() {
   return (
     <section
       id="tecnologias"
-      className="bg-[#0a0808] px-6 py-24 lg:px-20 lg:py-28"
+      className="bg-[#0a0808]/85 px-6 py-24 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-4 text-center text-4xl font-bold text-white lg:text-5xl">
