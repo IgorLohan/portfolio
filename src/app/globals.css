@@ -22,20 +22,9 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* Remove espaço extra entre header e hero */
 main {
   margin: 0;
   padding: 0;
-}
-
-#inicio {
-  padding-top: 0.5rem !important; /* 8px */
-}
-
-@media (min-width: 1024px) {
-  #inicio {
-    padding-top: 2rem !important; /* 32px - desktop */
-  }
 }
 
 /* Gradient text utility */

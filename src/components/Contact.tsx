@@ -1,3 +1,5 @@
+import { Countdown } from "./Countdown";
+
 const contactLinks = [
   {
     label: "Email",
@@ -54,6 +56,10 @@ export function Contact() {
               {link.label}
             </a>
           ))}
+        </div>
+
+        <div className="mt-14 flex flex-col items-center">
+          <Countdown className="mt-0" />
         </div>
       </div>
     </section>
