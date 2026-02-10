@@ -1,4 +1,5 @@
 import { Countdown } from "./Countdown";
+import { ScrollRevealItem } from "./ScrollReveal";
 
 const contactLinks = [
   {
@@ -30,16 +31,21 @@ export function Contact() {
       className="bg-[#0a0808]/85 px-6 py-24 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="mb-6 text-4xl font-bold text-white lg:text-5xl">
-          Vamos Trabalhar Juntos?
-        </h2>
-        <p className="mb-10 text-lg text-zinc-400">
-          Estou sempre aberto a novas oportunidades e projetos interessantes.
-          Entre em contato por email ou WhatsApp!
-        </p>
+        <ScrollRevealItem>
+          <h2 className="mb-6 text-4xl font-bold text-white lg:text-5xl">
+            Vamos Trabalhar Juntos?
+          </h2>
+        </ScrollRevealItem>
+        <ScrollRevealItem delay={50}>
+          <p className="mb-10 text-lg text-zinc-400">
+            Estou sempre aberto a novas oportunidades e projetos interessantes.
+            Entre em contato por email ou WhatsApp!
+          </p>
+        </ScrollRevealItem>
 
         <div className="grid max-w-xs grid-cols-2 gap-3 sm:mx-auto sm:flex sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-5">
-          {contactLinks.map((link) => (
+          {contactLinks.map((link, index) => (
+            <ScrollRevealItem key={link.label} delay={index * 80}>
             <a
               key={link.label}
               href={link.href}
@@ -55,12 +61,18 @@ export function Contact() {
               />
               {link.label}
             </a>
+            </ScrollRevealItem>
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col items-center">
-          <Countdown className="mt-0" />
-        </div>
+        <ScrollRevealItem delay={150}>
+          <div className="mt-14 flex flex-col items-center">
+            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-zinc-500">
+              Meu horário local
+            </p>
+            <Countdown className="mt-0" />
+          </div>
+        </ScrollRevealItem>
       </div>
     </section>
   );

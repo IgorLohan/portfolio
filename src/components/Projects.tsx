@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectImageCarousel } from "./ProjectImageCarousel";
+import { ScrollRevealItem } from "./ScrollReveal";
 
 const GITHUB_USER = "IgorLohan";
 
@@ -72,12 +73,15 @@ export async function Projects() {
       className="bg-[#150a0a]/85 px-6 py-24 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">
-          Projetos em Destaque
-        </h2>
+        <ScrollRevealItem>
+          <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">
+            Projetos em Destaque
+          </h2>
+        </ScrollRevealItem>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {repos.map((repo: { name: string; description: string | null; language: string | null; html_url: string; full_name: string; updated_at?: string; topics?: string[] }, index: number) => (
+            <ScrollRevealItem key={repo.name} delay={index * 100}>
             <Link
               key={repo.name}
               href={repo.html_url}
@@ -128,6 +132,7 @@ export async function Projects() {
                 </div>
               </div>
             </Link>
+            </ScrollRevealItem>
           ))}
         </div>
       </div>

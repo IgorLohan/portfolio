@@ -1,3 +1,5 @@
+import { ScrollRevealItem } from "./ScrollReveal";
+
 const skillCategories = [
   {
     title: "Frontend",
@@ -41,25 +43,28 @@ export function Skills() {
       className="bg-[#0a0808]/85 px-6 py-24 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-4 text-center text-4xl font-bold text-white lg:text-5xl">
-          Tecnologias e Utilitários
-        </h2>
+        <ScrollRevealItem>
+          <h2 className="mb-4 text-center text-4xl font-bold text-white lg:text-5xl">
+            Tecnologias e Utilitários
+          </h2>
+        </ScrollRevealItem>
 
         <div className="space-y-16">
-          {skillCategories.map((category) => (
-            <div key={category.title}>
-              <div className="mb-6 border-l-2 border-[#8b4040] pl-4">
-                <h3 className="text-lg font-semibold text-white">
-                  {category.title}
-                </h3>
-                <p className="text-sm text-zinc-500">{category.description}</p>
-              </div>
-              <div className="flex flex-wrap gap-4">
-                {category.skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="group flex items-center gap-4 rounded-xl border border-white/5 bg-[#121210] px-5 py-4 transition-all hover:border-[#8b4040]/30 hover:bg-[#1a1212]"
-                  >
+          {skillCategories.map((category, catIndex) => (
+            <ScrollRevealItem key={category.title} delay={catIndex * 80}>
+              <div>
+                <div className="mb-6 border-l-2 border-[#8b4040] pl-4">
+                  <h3 className="text-lg font-semibold text-white">
+                    {category.title}
+                  </h3>
+                  <p className="text-sm text-zinc-500">{category.description}</p>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <ScrollRevealItem key={skill.name} delay={skillIndex * 60}>
+                    <div
+                      className="group flex items-center gap-4 rounded-xl border border-white/5 bg-[#121210] px-5 py-4 transition-all hover:border-[#8b4040]/30 hover:bg-[#1a1212]"
+                    >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center">
                       <img
                         src={skill.icon}
@@ -71,9 +76,11 @@ export function Skills() {
                       {skill.name}
                     </span>
                   </div>
-                ))}
+                    </ScrollRevealItem>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ScrollRevealItem>
           ))}
         </div>
       </div>
