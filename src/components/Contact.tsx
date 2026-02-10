@@ -32,33 +32,33 @@ export function Contact() {
   return (
     <section
       id="contato"
-      className="bg-[#0a0808]/85 px-6 py-24 lg:px-20 lg:py-28"
+      className="bg-[#0a0808]/85 px-4 py-14 sm:px-6 sm:py-20 lg:px-20 lg:py-28"
     >
       <div className="mx-auto max-w-4xl text-center">
         <ScrollRevealItem>
-          <h2 className="mb-6 text-4xl font-bold text-white lg:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold text-white sm:mb-6 sm:text-4xl lg:text-5xl">
             {t("title")}
           </h2>
         </ScrollRevealItem>
         <ScrollRevealItem delay={50}>
-          <p className="mb-10 text-lg text-zinc-400">
+          <p className="mb-8 text-base text-zinc-400 sm:mb-10 sm:text-lg">
             {t("subtitle")}
           </p>
         </ScrollRevealItem>
 
-        <div className="grid max-w-xs grid-cols-2 gap-3 sm:mx-auto sm:flex sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-5">
+        <div className="mx-auto grid max-w-[280px] grid-cols-2 gap-x-3 gap-y-1.5 sm:flex sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-5">
           {contactLinks.map((link, index) => (
-            <ScrollRevealItem key={link.key} delay={index * 80}>
+            <ScrollRevealItem key={link.key} delay={index * 80} className="min-w-0">
               <a
                 href={link.href}
                 target={link.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#8b4040] px-4 py-3 text-sm font-semibold text-[#a85555] transition-colors hover:bg-[#8b4040]/10 sm:gap-2.5 sm:px-8 sm:py-4 sm:text-base"
+                className="flex min-h-[44px] w-full items-center justify-center gap-1.5 rounded-lg border-2 border-[#8b4040] px-2.5 py-2 text-xs font-semibold text-[#a85555] transition-colors hover:bg-[#8b4040]/10 sm:min-h-0 sm:w-auto sm:gap-2.5 sm:rounded-xl sm:px-8 sm:py-4 sm:text-base"
               >
                 <img
                   src={link.icon}
                   alt=""
-                  className="h-4 w-4 shrink-0 object-contain sm:h-5 sm:w-5"
+                  className="h-3.5 w-3.5 shrink-0 object-contain sm:h-5 sm:w-5"
                   aria-hidden
                 />
                 {link.label}
@@ -68,7 +68,7 @@ export function Contact() {
         </div>
 
         <ScrollRevealItem delay={150}>
-          <div className="mt-14 flex flex-col items-center">
+          <div className="mt-10 flex flex-col items-center sm:mt-14">
             <Countdown className="mt-0" />
           </div>
         </ScrollRevealItem>

@@ -15,18 +15,18 @@ const numberStyle = {
 function TimeSegment({ value, label }: { value: string; label: string }) {
   return (
     <div
-      className="flex flex-col items-center gap-2 rounded-2xl border border-[#8b4040]/50 bg-[#0f0a0a]/95 px-5 py-4 sm:px-6 sm:py-5"
+      className="flex flex-col items-center gap-0.5 rounded-lg border border-[#8b4040]/50 bg-[#0f0a0a]/95 px-2.5 py-2 sm:gap-2 sm:rounded-2xl sm:px-6 sm:py-5"
       style={{ boxShadow: "0 0 24px rgba(139, 64, 64, 0.3), inset 0 0 0 1px rgba(139, 64, 64, 0.1)" }}
     >
-      <div className="flex h-16 w-24 items-center justify-center sm:h-20 sm:w-28">
+      <div className="flex h-9 w-11 items-center justify-center sm:h-20 sm:w-28">
         <span
-          className="text-4xl font-bold tabular-nums sm:text-5xl"
+          className="text-2xl font-bold tabular-nums sm:text-5xl"
           style={numberStyle}
         >
           {value}
         </span>
       </div>
-      <span className="text-sm font-medium uppercase tracking-wider text-zinc-500">
+      <span className="text-[10px] font-medium uppercase tracking-wider text-zinc-500 sm:text-sm">
         {label}
       </span>
     </div>
@@ -61,19 +61,19 @@ export function Countdown({ className = "" }: CountdownProps) {
 
   if (!mounted) {
     return (
-      <div className={`flex flex-wrap items-center justify-center gap-3 sm:gap-4 ${className}`.trim()}>
+      <div className={`flex flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 ${className}`.trim()}>
         {["HH", "MM", "SS"].map((label) => (
           <div
             key={label}
-            className="flex flex-col items-center gap-2 rounded-2xl border border-[#8b4040]/50 bg-[#0f0a0a]/95 px-5 py-4 sm:px-6 sm:py-5"
+            className="flex flex-col items-center gap-0.5 rounded-lg border border-[#8b4040]/50 bg-[#0f0a0a]/95 px-2.5 py-2 sm:gap-2 sm:rounded-2xl sm:px-6 sm:py-5"
             style={{ boxShadow: "0 0 24px rgba(139, 64, 64, 0.3)" }}
           >
-            <div className="flex h-16 w-24 items-center justify-center sm:h-20 sm:w-28">
-              <span className="text-4xl font-bold tabular-nums text-[#a85555] sm:text-5xl">
+            <div className="flex h-9 w-11 items-center justify-center sm:h-20 sm:w-28">
+              <span className="text-2xl font-bold tabular-nums text-[#a85555] sm:text-5xl">
                 00
               </span>
             </div>
-            <span className="text-sm font-medium uppercase tracking-wider text-zinc-500">
+            <span className="text-[10px] font-medium uppercase tracking-wider text-zinc-500 sm:text-sm">
               {label}
             </span>
           </div>
@@ -89,13 +89,13 @@ export function Countdown({ className = "" }: CountdownProps) {
   ];
 
   return (
-    <div className={`flex flex-wrap items-center justify-center gap-3 sm:gap-4 ${className}`.trim()}>
+    <div className={`flex flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 ${className}`.trim()}>
       {segments.map((seg, i) => (
-        <div key={seg.label} className="flex items-center gap-3 sm:gap-4">
+        <div key={seg.label} className="flex items-center gap-1.5 sm:gap-4">
           <TimeSegment value={seg.value} label={seg.label} />
           {i < segments.length - 1 && (
             <span
-              className="text-4xl font-bold sm:text-5xl"
+              className="text-2xl font-bold sm:text-5xl"
               style={{
                 color: "#a85555",
                 textShadow: "0 0 10px rgba(168, 85, 85, 0.5)",
