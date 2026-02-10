@@ -8,6 +8,11 @@ interface ProjectImageCarouselProps {
   alt: string;
   fallbackSrc?: string;
   gradientClass: string;
+  /** Modal: container preenche o espaço e imagem nítida (object-contain). */
+  fill?: boolean;
+  /** Classes extras no container. */
+  containerClassName?: string;
+  priority?: boolean;
 }
 
 export function ProjectImageCarousel({
@@ -15,6 +20,9 @@ export function ProjectImageCarousel({
   alt,
   fallbackSrc,
   gradientClass,
+  fill = false,
+  containerClassName = "",
+  priority = false,
 }: ProjectImageCarouselProps) {
   const imageArray = Array.isArray(images) ? images : [images];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,31 +35,74 @@ export function ProjectImageCarousel({
     return () => clearInterval(interval);
   }, [imageArray.length]);
 
+  const goPrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev - 1 + imageArray.length) % imageArray.length);
+  };
+
+  const goNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev + 1) % imageArray.length);
+  };
+
   const src = imageArray.length > 0 ? imageArray[currentIndex] : fallbackSrc;
   if (!src) return null;
 
+  const imageClass = fill
+    ? "h-full w-full object-contain opacity-95 transition-opacity duration-500"
+    : "h-full w-full object-cover opacity-90 transition-opacity duration-500";
+
+  const containerHeightClass = fill ? "min-h-[55vh] flex-1 w-full" : "h-52";
+
   return (
-    <div className={`relative h-52 overflow-hidden bg-gradient-to-r ${gradientClass}`}>
+    <div
+      className={`relative shrink-0 overflow-hidden bg-gradient-to-r ${gradientClass} ${containerHeightClass} ${containerClassName}`.trim()}
+    >
       <Image
         key={currentIndex}
         src={src}
         alt={alt}
-        width={400}
-        height={200}
-        className="h-full w-full object-contain opacity-90 transition-opacity duration-500"
+        width={1200}
+        height={800}
+        sizes="(max-width: 1280px) 100vw, 1152px"
+        quality={95}
+        priority={priority}
+        className={imageClass}
       />
       {imageArray.length > 1 && (
-        <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1.5">
-          {imageArray.map((_, i) => (
-            <span
-              key={i}
-              className={`h-1.5 w-1.5 rounded-full transition-colors ${
-                i === currentIndex ? "bg-white" : "bg-white/40"
-              }`}
-              aria-hidden
-            />
-          ))}
-        </div>
+        <>
+          <button
+            type="button"
+            onClick={goPrev}
+            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+            aria-label="Imagem anterior"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={goNext}
+            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+            aria-label="Próxima imagem"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1.5">
+            {imageArray.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 w-1.5 rounded-full transition-colors ${
+                  i === currentIndex ? "bg-white" : "bg-white/40"
+                }`}
+                aria-hidden
+              />
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
