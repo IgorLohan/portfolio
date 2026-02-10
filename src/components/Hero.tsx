@@ -1,14 +1,11 @@
-import Image from "next/image";
-
 export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-b from-[#0a0808]/90 to-[#1a0f0f]/90 px-6 pb-24 lg:px-20"
+      className="relative overflow-hidden bg-gradient-to-b from-[#0a0808]/90 to-[#1a0f0f]/90 px-6 pt-12 pb-24 lg:px-20 lg:pt-16"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16 lg:items-center">
-          <div className="order-2 flex-1 space-y-8 text-center lg:order-1 lg:text-left">
+        <div className="space-y-8 text-center lg:text-left">
             <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               Igor Lohan
             </h1>
@@ -31,19 +28,6 @@ export function Hero() {
                 Entre em Contato
               </a>
             </div>
-          </div>
-
-          <div className="order-1 relative shrink-0 lg:order-2">
-            <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#8b4040]/50 sm:h-72 sm:w-72 lg:h-80 lg:w-80">
-              <Image
-                src="/igor.png"
-                alt="Igor Lohan - Desenvolvedor"
-                width={320}
-                height={320}
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
