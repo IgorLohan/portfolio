@@ -67,9 +67,6 @@ export function Contact() {
 
         <ScrollRevealItem delay={150}>
           <div className="mt-14 flex flex-col items-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-zinc-500">
-              Meu horário local
-            </p>
             <Countdown className="mt-0" />
           </div>
         </ScrollRevealItem>
