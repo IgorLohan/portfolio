@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "title": "Igor Lohan | Desenvolvedor Web",
+    "description": "Desenvolvedor web com experiência em front-end e back-end. React, Next.js, Vue.js, NestJS e TypeScript."
+  },
+  "header": {
+    "brand": "<Dev/> Full Stack",
+    "ariaMenu": "Menu",
+    "localePt": "PT",
+    "localeEn": "EN",
+    "nav": {
+      "inicio": "Início",
+      "sobre": "Sobre",
+      "projetos": "Projetos",
+      "contato": "Contato"
+    }
+  },
+  "hero": {
+    "name": "Igor Lohan",
+    "subtitle": "Desenvolvedor especializado em aplicações web modernas, com forte foco em arquitetura de software, escalabilidade e boas práticas de desenvolvimento. Atuo na criação de soluções robustas, performáticas e bem estruturadas, transformando ideias em produtos digitais confiáveis e eficientes.",
+    "ctaProjects": "Ver Projetos",
+    "ctaContact": "Entre em Contato"
+  },
+  "skills": {
+    "sectionTitle": "Sobre mim & Tecnologias",
+    "aboutTitle": "Sobre mim",
+    "aboutText": "Desenvolvedor Full Stack com foco em criar soluções completas, do front ao back-end. Gosto de código limpo, boas práticas e de aprender novas tecnologias para entregar projetos que fazem a diferença.",
+    "experiencesTitle": "Experiências",
+    "companyLabel": "Empresa",
+    "categories": {
+      "frontend": "Frontend",
+      "frontendDesc": "Interfaces e experiências visuais",
+      "backend": "Backend",
+      "backendDesc": "APIs e lógica de servidor",
+      "utilities": "Utilitários",
+      "utilitiesDesc": "Ferramentas de desenvolvimento"
+    },
+    "experiences": [
+      {
+        "role": "Desenvolvedor Web júnior",
+        "period": "02/2024 – 02/2026",
+        "company": "Intelite Tecnologia",
+        "responsibilities": "Atuação no desenvolvimento de aplicações web, tanto no front-end quanto no back-end. Identificação e correção de bugs e falhas no sistema. Integração e manutenção de APIs. Consulta, edição e gerenciamento de dados em bancos NoSQL."
+      },
+      {
+        "role": "Suporte - Setor de desenvolvimento",
+        "period": "04/2022 – 01/2024",
+        "company": "Intelite Tecnologia",
+        "responsibilities": "Realizar alterações em cadastros de usuários dos clientes. Analisar e executar pequenas correções e ajustes nas páginas (front-end e back-end). Participar de reuniões para levantamento de demandas e solicitações dos clientes. Monitorar aplicações e reportar possíveis inconsistências ou falhas."
+      },
+      {
+        "role": "Suporte ao usuário - Helpdesk",
+        "period": "05/2021 – 03/2022",
+        "company": "Fundação Napoleão Laureano",
+        "responsibilities": "Realizar alterações e atualizações nos cadastros dos colaboradores. Fazer manutenção preventiva e corretiva nos sistemas instalados nas máquinas dos usuários. Monitorar o funcionamento dos equipamentos e garantir a estabilidade dos sistemas. Instalar e configurar mecanismos de segurança e proteção (antivírus, firewalls, etc.). Prestar suporte técnico presencial e remoto aos colaboradores."
+      }
+    ]
+  },
+  "projects": {
+    "sectionTitle": "Meus Projetos",
+    "viewProject": "Ver projeto",
+    "items": {
+      "barbertip": {
+        "title": "BarberTip - Fullstack",
+        "description": "Aplicação para barbearias com agendamento e gestão."
+      },
+      "chefia": {
+        "title": "Chefia - Frontend",
+        "description": "Sistema de gestão para restaurantes e lanchonetes com foco em autoatendimento na mesa e controle de estoque."
+      },
+      "api-chefia": {
+        "title": "Api Chefia - Backend",
+        "description": "API backend para o sistema Chefia."
+      }
+    }
+  },
+  "modal": {
+    "close": "Fechar",
+    "viewProject": "Ver projeto",
+    "prevImage": "Imagem anterior",
+    "nextImage": "Próxima imagem"
+  },
+  "contact": {
+    "title": "Vamos Trabalhar Juntos?",
+    "subtitle": "Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato por email ou WhatsApp!",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "countdown": {
+    "hours": "HORAS",
+    "minutes": "MIN",
+    "seconds": "SEG"
+  },
+  "footer": {
+    "copyright": "© {year} Igor Lohan. Todos os direitos reservados."
+  }
+}

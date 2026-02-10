@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { MatrixBackground } from "@/components/MatrixBackground";
@@ -7,7 +8,12 @@ import { Projects } from "@/components/Projects";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
-export default function Home() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <div className="relative min-h-screen bg-[#0a0808]">
       <MatrixBackground />

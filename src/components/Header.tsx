@@ -1,16 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter, usePathname } from "@/i18n/navigation";
 
-const navLinks = [
-  { href: "#inicio", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#contato", label: "Contato" },
-];
+const navKeys = ["inicio", "sobre", "projetos", "contato"] as const;
 
 export function Header() {
+  const t = useTranslations("header");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const setLocale = (newLocale: "pt-BR" | "en") => {
+    if (newLocale === locale) return;
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("locale-switch-scroll", String(window.scrollY));
+    }
+    router.replace(pathname, { locale: newLocale, scroll: false });
+  };
+
+  const navLinks = navKeys.map((key) => ({
+    href: `#${key === "inicio" ? "inicio" : key}`,
+    label: t(`nav.${key}`),
+  }));
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0a0808]/75 backdrop-blur-md">
@@ -19,7 +33,7 @@ export function Header() {
           href="#inicio"
           className="text-xl font-bold text-white transition-opacity hover:opacity-90"
         >
-          {"<Dev/> Full Stack "}
+          {t("brand")}
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -32,13 +46,32 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          <span className="flex items-center gap-1 text-sm text-zinc-500">
+            <button
+              type="button"
+              onClick={() => setLocale("pt-BR")}
+              className={locale === "pt-BR" ? "font-semibold text-white" : "text-zinc-400 hover:text-white"}
+              aria-current={locale === "pt-BR" ? "true" : undefined}
+            >
+              {t("localePt")}
+            </button>
+            <span aria-hidden>|</span>
+            <button
+              type="button"
+              onClick={() => setLocale("en")}
+              className={locale === "en" ? "font-semibold text-white" : "text-zinc-400 hover:text-white"}
+              aria-current={locale === "en" ? "true" : undefined}
+            >
+              {t("localeEn")}
+            </button>
+          </span>
         </nav>
 
         <button
           type="button"
           className="flex flex-col gap-1.5 md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Menu"
+          aria-label={t("ariaMenu")}
         >
           <span
             className={`block h-0.5 w-6 bg-white transition-transform ${mobileMenuOpen ? "translate-y-2 rotate-45" : ""}`}

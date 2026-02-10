@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "title": "Igor Lohan | Web Developer",
+    "description": "Web developer with experience in front-end and back-end. React, Next.js, Vue.js, NestJS and TypeScript."
+  },
+  "header": {
+    "brand": "<Dev/> Full Stack",
+    "ariaMenu": "Menu",
+    "localePt": "PT",
+    "localeEn": "EN",
+    "nav": {
+      "inicio": "Home",
+      "sobre": "About",
+      "projetos": "Projects",
+      "contato": "Contact"
+    }
+  },
+  "hero": {
+    "name": "Igor Lohan",
+    "subtitle": "Developer specialized in modern web applications, with a strong focus on software architecture, scalability and development best practices. I work on creating robust, performant and well-structured solutions, turning ideas into reliable and efficient digital products.",
+    "ctaProjects": "View Projects",
+    "ctaContact": "Get in Touch"
+  },
+  "skills": {
+    "sectionTitle": "About me & Technologies",
+    "aboutTitle": "About me",
+    "aboutText": "Full Stack Developer focused on creating complete solutions, from front-end to back-end. I like clean code, good practices and learning new technologies to deliver projects that make a difference.",
+    "experiencesTitle": "Experience",
+    "companyLabel": "Company",
+    "categories": {
+      "frontend": "Frontend",
+      "frontendDesc": "Interfaces and visual experiences",
+      "backend": "Backend",
+      "backendDesc": "APIs and server logic",
+      "utilities": "Utilities",
+      "utilitiesDesc": "Development tools"
+    },
+    "experiences": [
+      {
+        "role": "Junior Web Developer",
+        "period": "02/2024 – 02/2026",
+        "company": "Intelite Tecnologia",
+        "responsibilities": "Work on the development of web applications, both front-end and back-end. Identify and fix bugs and system failures. API integration and maintenance. Query, edit and manage data in NoSQL databases."
+      },
+      {
+        "role": "Support - Development sector",
+        "period": "04/2022 – 01/2024",
+        "company": "Intelite Tecnologia",
+        "responsibilities": "Make changes to client user records. Analyze and perform small fixes and adjustments on pages (front-end and back-end). Participate in meetings to gather client demands and requests. Monitor applications and report possible inconsistencies or failures."
+      },
+      {
+        "role": "User Support - Helpdesk",
+        "period": "05/2021 – 03/2022",
+        "company": "Fundação Napoleão Laureano",
+        "responsibilities": "Make changes and updates to employee records. Perform preventive and corrective maintenance on systems installed on user machines. Monitor equipment operation and ensure system stability. Install and configure security and protection mechanisms (antivirus, firewalls, etc.). Provide in-person and remote technical support to employees."
+      }
+    ]
+  },
+  "projects": {
+    "sectionTitle": "My Projects",
+    "viewProject": "View project",
+    "items": {
+      "barbertip": {
+        "title": "BarberTip - Fullstack",
+        "description": "Application for barbershops with scheduling and management."
+      },
+      "chefia": {
+        "title": "Chefia - Frontend",
+        "description": "Management system for restaurants and snack bars with a focus on table self-service and inventory control."
+      },
+      "api-chefia": {
+        "title": "Api Chefia - Backend",
+        "description": "Backend API for the Chefia system."
+      }
+    }
+  },
+  "modal": {
+    "close": "Close",
+    "viewProject": "View project",
+    "prevImage": "Previous image",
+    "nextImage": "Next image"
+  },
+  "contact": {
+    "title": "Let's Work Together?",
+    "subtitle": "I'm always open to new opportunities and interesting projects. Get in touch by email or WhatsApp!",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "countdown": {
+    "hours": "HRS",
+    "minutes": "MIN",
+    "seconds": "SEC"
+  },
+  "footer": {
+    "copyright": "© {year} Igor Lohan. All rights reserved."
+  }
+}

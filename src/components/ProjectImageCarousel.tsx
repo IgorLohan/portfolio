@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface ProjectImageCarouselProps {
   images: string | string[];
@@ -24,6 +25,7 @@ export function ProjectImageCarousel({
   containerClassName = "",
   priority = false,
 }: ProjectImageCarouselProps) {
+  const t = useTranslations("modal");
   const imageArray = Array.isArray(images) ? images : [images];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -75,7 +77,7 @@ export function ProjectImageCarousel({
             type="button"
             onClick={goPrev}
             className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
-            aria-label="Imagem anterior"
+            aria-label={t("prevImage")}
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -85,7 +87,7 @@ export function ProjectImageCarousel({
             type="button"
             onClick={goNext}
             className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
-            aria-label="Próxima imagem"
+            aria-label={t("nextImage")}
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

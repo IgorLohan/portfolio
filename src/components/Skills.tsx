@@ -1,9 +1,13 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { ScrollRevealItem } from "./ScrollReveal";
+
+const categoryKeys = ["frontend", "backend", "utilities"] as const;
 
 const skillCategories = [
   {
-    title: "Frontend",
-    description: "Interfaces e experiências visuais",
+    key: "frontend" as const,
     skills: [
       { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
       { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
@@ -15,8 +19,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "Backend",
-    description: "APIs e lógica de servidor",
+    key: "backend" as const,
     skills: [
       { name: "NestJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg" },
       { name: "LoopBack", icon: "https://loopback.io/images/global/loopback-mark-frame-white.svg" },
@@ -25,8 +28,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "Utilitários",
-    description: "Ferramentas de desenvolvimento",
+    key: "utilities" as const,
     skills: [
       { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
       { name: "GitHub", icon: "https://cdn.simpleicons.org/github/ffffff" },
@@ -37,32 +39,10 @@ const skillCategories = [
   },
 ];
 
-const aboutText = `Desenvolvedor Full Stack com foco em criar soluções completas, do front ao back-end. Gosto de código limpo, boas práticas e de aprender novas tecnologias para entregar projetos que fazem a diferença.`;
-
-const experiences = [
-  {
-    role: "Desenvolvedor Web júnior",
-    period: "02/2024 – 02/2026",
-    company: "Intelite Tecnologia",
-    responsibilities:
-      "Atuação no desenvolvimento de aplicações web, tanto no front-end quanto no back-end. Identificação e correção de bugs e falhas no sistema. Integração e manutenção de APIs. Consulta, edição e gerenciamento de dados em bancos NoSQL.",
-  },
-  {
-    role: "Suporte - Setor de desenvolvimento",
-    period: "04/2022 – 01/2024",
-    company: "Intelite Tecnologia",
-    responsibilities:
-      "Realizar alterações em cadastros de usuários dos clientes. Analisar e executar pequenas correções e ajustes nas páginas (front-end e back-end). Participar de reuniões para levantamento de demandas e solicitações dos clientes. Monitorar aplicações e reportar possíveis inconsistências ou falhas.",
-  },
-  {
-    role: "Suporte ao usuário - Helpdesk",
-    period: "05/2021 – 03/2022",
-    company: "Fundação Napoleão Laureano",
-    responsibilities:
-      "Realizar alterações e atualizações nos cadastros dos colaboradores. Fazer manutenção preventiva e corretiva nos sistemas instalados nas máquinas dos usuários. Monitorar o funcionamento dos equipamentos e garantir a estabilidade dos sistemas. Instalar e configurar mecanismos de segurança e proteção (antivírus, firewalls, etc.). Prestar suporte técnico presencial e remoto aos colaboradores.",
-  },
-];
 export function Skills() {
+  const t = useTranslations("skills");
+  const experiencesCount = 3;
+
   return (
     <section
       id="sobre"
@@ -71,36 +51,40 @@ export function Skills() {
       <div className="mx-auto max-w-6xl">
         <ScrollRevealItem>
           <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">
-            Sobre mim & Tecnologias
+            {t("sectionTitle")}
           </h2>
         </ScrollRevealItem>
 
         <div className="grid gap-10 lg:grid-cols-[1fr,1.2fr] lg:gap-0">
-          {/* Esquerda da linha: Sobre mim */}
           <div className="lg:col-start-1 lg:row-start-1 lg:pr-10">
             <ScrollRevealItem delay={80}>
               <h3 className="mb-4 border-l-2 border-[#8b4040] pl-4 text-xl font-semibold text-white">
-                Sobre mim
+                {t("aboutTitle")}
               </h3>
               <p className="text-zinc-400 leading-relaxed">
-                {aboutText}
+                {t("aboutText")}
               </p>
             </ScrollRevealItem>
 
             <div className="mt-14">
               <h3 className="mb-4 border-l-2 border-[#8b4040] pl-4 text-xl font-semibold text-white">
-                Experiências
+                {t("experiencesTitle")}
               </h3>
               <div className="flex flex-col gap-4">
-                {experiences.map((exp, index) => (
+                {Array.from({ length: experiencesCount }).map((_, index) => (
                   <ScrollRevealItem key={index} delay={100 + index * 60}>
                     <div className="group rounded-xl border border-white/5 bg-[#121210] px-5 py-4 transition-all hover:border-[#8b4040]/30 hover:bg-[#1a1212]">
                       <p className="font-semibold text-white">
-                        {exp.role} <span className="text-zinc-500 font-normal">({exp.period})</span>
+                        {t(`experiences.${index}.role`)}{" "}
+                        <span className="text-zinc-500 font-normal">
+                          ({t(`experiences.${index}.period`)})
+                        </span>
                       </p>
-                      <p className="mt-1 text-sm text-[#c08080]">Empresa: {exp.company}</p>
+                      <p className="mt-1 text-sm text-[#c08080]">
+                        {t("companyLabel")}: {t(`experiences.${index}.company`)}
+                      </p>
                       <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
-                        {exp.responsibilities}
+                        {t(`experiences.${index}.responsibilities`)}
                       </p>
                     </div>
                   </ScrollRevealItem>
@@ -109,17 +93,18 @@ export function Skills() {
             </div>
           </div>
 
-          {/* Direita da linha: Tecnologias (linha = borda esquerda desta coluna) */}
           <div className="lg:col-start-2 lg:row-start-1 lg:border-l-4 lg:border-white/20 lg:pl-10">
             <div className="space-y-16">
               {skillCategories.map((category, catIndex) => (
-                <ScrollRevealItem key={category.title} delay={catIndex * 80}>
+                <ScrollRevealItem key={category.key} delay={catIndex * 80}>
                   <div>
                     <div className="mb-6 border-l-2 border-[#8b4040] pl-4">
                       <h3 className="text-lg font-semibold text-white">
-                        {category.title}
+                        {t(`categories.${category.key}`)}
                       </h3>
-                      <p className="text-sm text-zinc-500">{category.description}</p>
+                      <p className="text-sm text-zinc-500">
+                        {t(`categories.${category.key}Desc`)}
+                      </p>
                     </div>
                     <div className="flex flex-wrap gap-4">
                       {category.skills.map((skill, skillIndex) => (

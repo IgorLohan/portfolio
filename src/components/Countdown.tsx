@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 function pad(n: number) {
   return n.toString().padStart(2, "0");
@@ -37,6 +38,7 @@ interface CountdownProps {
 }
 
 export function Countdown({ className = "" }: CountdownProps) {
+  const t = useTranslations("countdown");
   const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
 
@@ -81,9 +83,9 @@ export function Countdown({ className = "" }: CountdownProps) {
   }
 
   const segments = [
-    { value: pad(time.hours), label: "HORAS" },
-    { value: pad(time.minutes), label: "MIN" },
-    { value: pad(time.seconds), label: "SEG" },
+    { value: pad(time.hours), label: t("hours") },
+    { value: pad(time.minutes), label: t("minutes") },
+    { value: pad(time.seconds), label: t("seconds") },
   ];
 
   return (

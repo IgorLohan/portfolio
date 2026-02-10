@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useTranslations } from "next-intl";
 import { ProjectImageCarousel } from "./ProjectImageCarousel";
 
 export interface Project {
@@ -21,6 +22,8 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, gradientClass, onClose }: ProjectModalProps) {
+  const t = useTranslations("modal");
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -62,7 +65,7 @@ export function ProjectModal({ project, gradientClass, onClose }: ProjectModalPr
           type="button"
           onClick={onClose}
           className="absolute right-4 top-4 z-20 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
-          aria-label="Fechar"
+          aria-label={t("close")}
         >
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -118,7 +121,7 @@ export function ProjectModal({ project, gradientClass, onClose }: ProjectModalPr
                 rel="noopener noreferrer"
                 className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#5c2a2a] to-[#8b4040] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
               >
-                Ver projeto
+                {t("viewProject")}
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>

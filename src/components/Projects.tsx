@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { ProjectImageCarousel } from "./ProjectImageCarousel";
 import { ProjectModal, type Project } from "./ProjectModal";
 import { ScrollRevealItem } from "./ScrollReveal";
@@ -15,11 +16,9 @@ const GRADIENTS = [
   "from-[#3d1515] to-[#6b3030]",
 ];
 
-const PROJECTS: Project[] = [
+const PROJECTS_BASE: Omit<Project, "title" | "description">[] = [
   {
     id: "barbertip",
-    title: "BarberTip - Fullstack",
-    description: "Aplicação para barbearias com agendamento e gestão.",
     url: "https://github.com/IgorLohan/barbertip",
     image: [
       "/projetos/barbertip.png",
@@ -32,8 +31,6 @@ const PROJECTS: Project[] = [
   },
   {
     id: "chefia",
-    title: "Chefia - Frontend",
-    description: "Sistema de gestão para restaurantes e lanchonetes com foco em autoatendimento na mesa e controle de estoque.",
     url: "https://github.com/IgorLohan/chefia",
     image: [
       "/projetos/chefia.png",
@@ -46,17 +43,25 @@ const PROJECTS: Project[] = [
   },
   {
     id: "api-chefia",
-    title: "Api Chefia - Backend",
-    description: "API backend para o sistema Chefia.",
     url: "https://github.com/IgorLohan/api-chefia",
     image: "/projetos/chefia-6.png",
-    technologies: ["LoopBack", "MongoDB","JavaScript", "Node.js"],
+    technologies: ["LoopBack", "MongoDB", "JavaScript", "Node.js"],
   },
-  
 ];
 
 export function Projects() {
+  const t = useTranslations("projects");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const projects: Project[] = useMemo(
+    () =>
+      PROJECTS_BASE.map((p) => ({
+        ...p,
+        title: t(`items.${p.id}.title`),
+        description: t(`items.${p.id}.description`),
+      })),
+    [t]
+  );
 
   return (
     <section
@@ -66,12 +71,12 @@ export function Projects() {
       <div className="mx-auto max-w-6xl">
         <ScrollRevealItem>
           <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">
-            Meus Projetos
+            {t("sectionTitle")}
           </h2>
         </ScrollRevealItem>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((project, index) => (
+          {projects.map((project, index) => (
             <ScrollRevealItem key={project.id} delay={index * 100} className="h-full">
               <button
                 type="button"
@@ -121,7 +126,7 @@ export function Projects() {
         project={selectedProject}
         gradientClass={
           selectedProject
-            ? GRADIENTS[PROJECTS.findIndex((p) => p.id === selectedProject.id) % GRADIENTS.length]
+            ? GRADIENTS[projects.findIndex((p) => p.id === selectedProject.id) % GRADIENTS.length]
             : GRADIENTS[0]
         }
         onClose={() => setSelectedProject(null)}
