@@ -66,7 +66,7 @@ export function Projects() {
       <div className="mx-auto max-w-6xl">
         <ScrollRevealItem>
           <h2 className="mb-14 text-center text-4xl font-bold text-white lg:text-5xl">
-            Projetos em Destaque
+            Meus Projetos
           </h2>
         </ScrollRevealItem>
 
