@@ -57,7 +57,10 @@
     ]
   },
   "projects": {
-    "sectionTitle": "My Projects",
+    "sectionTitle": "Projects",
+    "myProjectsTitle": "My Projects",
+    "realProjectsTitle": "Real Projects",
+    "realProjectsEmpty": "No projects at the moment.",
     "viewProject": "View project",
     "items": {
       "barbertip": {
@@ -71,12 +74,17 @@
       "api-chefia": {
         "title": "Api Chefia - Backend",
         "description": "Backend API for the Chefia system."
+      },
+      "paginacao-dashboard": {
+        "title": "Paginacao - Backend / Frontend",
+        "description": "Pagination for displaying data in tables."
       }
     }
   },
   "modal": {
     "close": "Close",
     "viewProject": "View project",
+    "viewDocumentation": "View documentation",
     "prevImage": "Previous image",
     "nextImage": "Next image"
   },

@@ -57,7 +57,10 @@
     ]
   },
   "projects": {
-    "sectionTitle": "Meus Projetos",
+    "sectionTitle": "Projetos",
+    "myProjectsTitle": "Meus Projetos",
+    "realProjectsTitle": "Projetos Reais",
+    "realProjectsEmpty": "Nenhum projeto no momento.",
     "viewProject": "Ver projeto",
     "items": {
       "barbertip": {
@@ -71,12 +74,17 @@
       "api-chefia": {
         "title": "Api Chefia - Backend",
         "description": "API backend para o sistema Chefia."
+      },
+      "paginacao-dashboard": {
+        "title": "Paginacao - Backend / Frontend",
+        "description": "Paginacao para exibição de dados em tabelas."
       }
     }
   },
   "modal": {
     "close": "Fechar",
     "viewProject": "Ver projeto",
+    "viewDocumentation": "Ver documentação",
     "prevImage": "Imagem anterior",
     "nextImage": "Próxima imagem"
   },

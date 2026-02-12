@@ -37,14 +37,26 @@ export function ProjectImageCarousel({
     return () => clearInterval(interval);
   }, [imageArray.length]);
 
-  const goPrev = (e: React.MouseEvent) => {
+  const goPrev = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
+    e.preventDefault();
     setCurrentIndex((prev) => (prev - 1 + imageArray.length) % imageArray.length);
   };
 
-  const goNext = (e: React.MouseEvent) => {
+  const goNext = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
+    e.preventDefault();
     setCurrentIndex((prev) => (prev + 1) % imageArray.length);
+  };
+
+  const handleKeyDown = (
+    e: React.KeyboardEvent,
+    handler: (e: React.KeyboardEvent) => void
+  ) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handler(e);
+    }
   };
 
   const src = imageArray.length > 0 ? imageArray[currentIndex] : fallbackSrc;
@@ -73,26 +85,30 @@ export function ProjectImageCarousel({
       />
       {imageArray.length > 1 && (
         <>
-          <button
-            type="button"
+          <span
+            role="button"
+            tabIndex={0}
             onClick={goPrev}
-            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+            onKeyDown={(e) => handleKeyDown(e, goPrev)}
+            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50"
             aria-label={t("prevImage")}
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-          </button>
-          <button
-            type="button"
+          </span>
+          <span
+            role="button"
+            tabIndex={0}
             onClick={goNext}
-            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+            onKeyDown={(e) => handleKeyDown(e, goNext)}
+            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50"
             aria-label={t("nextImage")}
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </span>
           <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1.5">
             {imageArray.map((_, i) => (
               <span

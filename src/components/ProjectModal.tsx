@@ -19,9 +19,11 @@ interface ProjectModalProps {
   project: Project | null;
   gradientClass: string;
   onClose: () => void;
+  /** Projetos reais: exibe "Ver documentação" em vez de "Ver projeto". */
+  isRealProject?: boolean;
 }
 
-export function ProjectModal({ project, gradientClass, onClose }: ProjectModalProps) {
+export function ProjectModal({ project, gradientClass, onClose, isRealProject = false }: ProjectModalProps) {
   const t = useTranslations("modal");
 
   useEffect(() => {
@@ -121,7 +123,7 @@ export function ProjectModal({ project, gradientClass, onClose }: ProjectModalPr
                 rel="noopener noreferrer"
                 className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#5c2a2a] to-[#8b4040] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
               >
-                {t("viewProject")}
+                {isRealProject ? t("viewDocumentation") : t("viewProject")}
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
