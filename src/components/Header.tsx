@@ -86,19 +86,50 @@ export function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-t border-white/5 px-6 py-4 md:hidden">
-          <nav className="flex flex-col gap-4">
+        <div className="border-t border-white/10 bg-[#0f0a0a]/95 px-4 py-5 md:hidden">
+          <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-zinc-400 hover:text-white"
+                className="rounded-xl border-l-2 border-transparent py-3 pl-4 pr-3 text-base font-medium text-zinc-300 transition-colors hover:border-[#8b4040] hover:bg-[#8b4040]/10 hover:text-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
           </nav>
+          <div className="mt-4 border-t border-white/10 pt-4">
+            <p className="mb-3 pl-4 text-xs font-medium uppercase tracking-wider text-zinc-500">
+              {t("language")}
+            </p>
+            <div className="flex gap-2 pl-4">
+              <button
+                type="button"
+                onClick={() => setLocale("pt-BR")}
+                className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                  locale === "pt-BR"
+                    ? "bg-[#8b4040] text-white"
+                    : "bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white"
+                }`}
+                aria-current={locale === "pt-BR" ? "true" : undefined}
+              >
+                {t("localePt")}
+              </button>
+              <button
+                type="button"
+                onClick={() => setLocale("en")}
+                className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                  locale === "en"
+                    ? "bg-[#8b4040] text-white"
+                    : "bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white"
+                }`}
+                aria-current={locale === "en" ? "true" : undefined}
+              >
+                {t("localeEn")}
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </header>

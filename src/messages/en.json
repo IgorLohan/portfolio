@@ -6,6 +6,7 @@
   "header": {
     "brand": "<Dev/> Full Stack",
     "ariaMenu": "Menu",
+    "language": "Language",
     "localePt": "PT",
     "localeEn": "EN",
     "nav": {
