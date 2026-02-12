@@ -91,6 +91,19 @@ export function Skills() {
                 ))}
               </div>
             </div>
+
+            <ScrollRevealItem delay={280}>
+              <a
+                href="/api/download-curriculo"
+                download="curriculo.pdf"
+                className="mt-10 inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[#8b4040] bg-[#8b4040]/10 px-6 py-4 font-semibold text-[#a85555] transition-colors hover:bg-[#8b4040]/20"
+              >
+                <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                {t("downloadResume")}
+              </a>
+            </ScrollRevealItem>
           </div>
 
           <div className="lg:col-start-2 lg:row-start-1 lg:border-l-4 lg:border-white/20 lg:pl-10">

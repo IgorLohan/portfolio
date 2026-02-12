@@ -23,6 +23,7 @@
   },
   "skills": {
     "sectionTitle": "Sobre mim & Tecnologias",
+    "downloadResume": "Baixar currículo",
     "aboutTitle": "Sobre mim",
     "aboutText": "Desenvolvedor Full Stack com foco em criar soluções completas, do front ao back-end. Gosto de código limpo, boas práticas e de aprender novas tecnologias para entregar projetos que fazem a diferença.",
     "experiencesTitle": "Experiências",

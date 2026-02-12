@@ -23,6 +23,7 @@
   },
   "skills": {
     "sectionTitle": "About me & Technologies",
+    "downloadResume": "Download resume",
     "aboutTitle": "About me",
     "aboutText": "Full Stack Developer focused on creating complete solutions, from front-end to back-end. I like clean code, good practices and learning new technologies to deliver projects that make a difference.",
     "experiencesTitle": "Experience",
